@@ -1,0 +1,33 @@
+<div class="card text-center">
+    <div class="card-body">
+        <div style="align-content: center">
+            <img src="/assets/{{ produtos.imagem }}" class='img-fluid my-3' style='height: 150px;' [title]="produtos.nome"
+                [alt]="produtos.nome">
+        </div>
+    
+        <h4 class="card-title">{{ produtos.nome | titlecase }}</h4>
+    
+        <div [ngSwitch]="produtos.ativo">
+            <p *ngSwitchCase="true">Em estoque</p>
+            <p *ngSwitchCase="false">Fora de estoque</p>
+        </div>
+    
+        <div *ngIf="!produtos.ativo" class="card-body">
+            <div>
+                <h4>Avise-me quando chegar</h4>
+            </div>
+        </div>
+    
+        <div *ngIf="produtos.ativo" class="card-body">
+            <div>
+                <h4>{{ produtos.valor | currency:'BRL':'symbol':'1.2-2':'pt' }}</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-footer">
+        <a class="btn btn-info" href="javascript:void(0)">
+            Botão
+        </a>
+    </div>
+</div>

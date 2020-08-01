@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
 import { ReactiveFormsModule }   from '@angular/forms';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+registerLocaleData(localePt);
 
 import { NgBrazil, TextMask } from 'ng-brazil' 
 import { CustomFormsModule } from 'ng2-validation' 
@@ -12,6 +14,8 @@ import { SobreComponent } from './institucional/sobre/sobre.component';
 import { CadastroComponent } from './demos/reactiveForms/cadastro/cadastro.component';
 import { NavegacaoModule } from './navegacao/navegacao.module';
 import { AppRoutingModule } from './app-routing.module';
+
+
 
 @NgModule({
   declarations: [
