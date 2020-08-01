@@ -2,6 +2,10 @@
     <app-produto-count [produtos]='produtos'></app-produto-count>
 
     <div class="row my-4">
-        <app-produto-card-detalhe class="col-md-4 pb-5" *ngFor='let produto of produtos' [produtos]='produto'></app-produto-card-detalhe>
+        <app-produto-card-detalhe class="col-md-4 pb-5" 
+            *ngFor='let produto of produtos'
+            [produto]='produto'
+            (status)='mudarStatus($event)'
+        ></app-produto-card-detalhe>
     </div>
 </div>

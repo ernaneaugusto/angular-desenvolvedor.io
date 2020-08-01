@@ -1,33 +1,34 @@
 <div class="card text-center">
     <div class="card-body">
         <div style="align-content: center">
-            <img src="/assets/{{ produtos.imagem }}" class='img-fluid my-3' style='height: 150px;' [title]="produtos.nome"
-                [alt]="produtos.nome">
+            <img src="/assets/{{ produto.imagem }}" class='img-fluid my-3' style='height: 150px;' [title]="produto.nome"
+                [alt]="produto.nome">
         </div>
-    
-        <h4 class="card-title">{{ produtos.nome | titlecase }}</h4>
-    
-        <div [ngSwitch]="produtos.ativo">
+
+        <h4 class="card-title">{{ produto.nome | titlecase }}</h4>
+
+        <div [ngSwitch]="produto.ativo">
             <p *ngSwitchCase="true">Em estoque</p>
             <p *ngSwitchCase="false">Fora de estoque</p>
         </div>
-    
-        <div *ngIf="!produtos.ativo" class="card-body">
+
+        <div *ngIf="!produto.ativo" class="card-body">
             <div>
-                <h4>Avise-me quando chegar</h4>
+                <p class='alert alert-warning'>Avise-me quando chegar.</p>
             </div>
         </div>
-    
-        <div *ngIf="produtos.ativo" class="card-body">
+
+        <div *ngIf="produto.ativo" class="card-body">
             <div>
-                <h4>{{ produtos.valor | currency:'BRL':'symbol':'1.2-2':'pt' }}</h4>
+                <h4>{{ produto.valor | currency:'BRL':'symbol':'1.2-2':'pt' }}</h4>
             </div>
         </div>
     </div>
 
     <div class="card-footer">
-        <a class="btn btn-info" href="javascript:void(0)">
-            Botão
+        <a class="btn" [ngClass]='produto.ativo ? "btn-info" : "btn-warning"' (click)='desabilitarProduto()' [ngSwitch]="produto.ativo" href="javascript:void(0)">
+            <span *ngSwitchCase="false"><i class="fa fa-toggle-off"></i> Inativo</span>
+            <span *ngSwitchCase="true"><i class="fa fa-toggle-on"></i> Ativo</span>
         </a>
     </div>
 </div>
