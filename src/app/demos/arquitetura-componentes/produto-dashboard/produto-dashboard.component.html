@@ -6,6 +6,9 @@
             *ngFor='let produto of produtos'
             [produto]='produto'
             (status)='mudarStatus($event)'
-        ></app-produto-card-detalhe>
+        >
+        <p acabou>Ou vá até uma de nossas lojas.</p>
+        <p ultimas>Últimas unidades</p>
+    </app-produto-card-detalhe>
     </div>
 </div>
