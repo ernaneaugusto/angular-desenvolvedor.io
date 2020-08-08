@@ -1,6 +1,6 @@
 import { ProdutoService } from './../../services/produto.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Produto } from '../../models/produto';
 
 @Component({
@@ -14,6 +14,7 @@ export class ProdutoEditarComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private produtoService: ProdutoService
   ) { }
 
@@ -23,6 +24,12 @@ export class ProdutoEditarComponent implements OnInit {
         const { id } = params;
         this.produto = this.produtoService.obterPorId(id)
       });
+  }
+
+  public salvar() {
+    this.router.navigate(['/produtos']);
+    // tambem realizar a navegacao, porem da refresh na pagina
+    // this.router.navigateByUrl('/produtos');
   }
 
 }
