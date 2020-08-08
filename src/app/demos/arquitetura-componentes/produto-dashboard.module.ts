@@ -1,7 +1,8 @@
+import { ProdutoService } from './services/produto.service';
 import { ProdutoAppComponent } from './componentes/produto.app.component';
 import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
-import { ProdutoDashboardRoutingModule } from './produto-dashboard.route';
+import { ProdutoDashboardRoutingModule } from './produto-dashboard.routing';
 import { ProdutoDashboardComponent } from './produto-dashboard/produto-dashboard.component';
 import { ProdutoCardDetalheComponent } from './componentes/produto-card-detalhe/produto-card-detalhe.component';
 import { ProdutoCountComponent } from './componentes/produto-count/produto-count.component';
@@ -20,6 +21,9 @@ import { ProdutoEditarComponent } from './componentes/produto-editar/produto-edi
         ProdutoDashboardRoutingModule
     ],
     exports: [],
+    providers: [
+        ProdutoService
+    ],
 })
 
 export class ProdutoDashboardModule { }
