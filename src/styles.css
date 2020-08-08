@@ -13,3 +13,7 @@
   height: 50px;
   text-align: center;
 } 
+
+.btn {
+  padding: .5rem .75rem;
+}

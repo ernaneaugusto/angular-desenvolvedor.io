@@ -33,7 +33,7 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule
   ],
   providers: [
-    {provide: APP_BASE_HREF, useValue: '/'}
+    // {provide: APP_BASE_HREF, useValue: '/'} // essa configuracao de url base esta em index.html <base href='/'>
   ],
   bootstrap: [AppComponent]
 })

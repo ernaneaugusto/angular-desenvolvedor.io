@@ -28,9 +28,12 @@
     </div>
 
     <div class="card-footer">
-        <a class="btn" [ngClass]='produto.ativo ? "btn-info" : "btn-warning"' (click)='desabilitarProduto()' [ngSwitch]="produto.ativo" href="javascript:void(0)">
+        <a class="btn" [ngClass]='produto.ativo ? "btn-success" : "btn-warning"' (click)='desabilitarProduto()' [ngSwitch]="produto.ativo" href="javascript:void(0)">
             <span *ngSwitchCase="false"><i class="fa fa-toggle-off"></i> Inativo</span>
             <span *ngSwitchCase="true"><i class="fa fa-toggle-on"></i> Ativo</span>
+        </a>
+        <a [routerLink]="['editar', produto.id]" class="btn btn-info">
+            <i class="fa fa-edit"></i> Editar
         </a>
     </div>
 </div>
