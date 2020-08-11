@@ -8,7 +8,7 @@ export class ProdutoResolve implements Resolve<Array<Produto>> {
     constructor(private produtoService: ProdutoService) { }
 
     resolve(route: ActivatedRouteSnapshot) {
-        // nessa funcao poderiamos consultar no backend se o usuario tem permissao para acessar a pagina, retornando true ou false e cancelando seu acesso a pagina, caso nao tenha permissao
+        // nessa funcao consultamos o backend para buscar as informacoes para preenchimento da pagina, no momento em que a pagina eh carregada os dados já estarao todos prontos para serem usados, evitando que parte da pagina possa ficar em branco devido demora na resposta do servico de consulta de produtos
         const estado = route.params.estado;
         return this.produtoService.obterTodos(estado);
     }
