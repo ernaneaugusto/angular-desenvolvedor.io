@@ -11,6 +11,7 @@ const rootRouterConfig: Routes = [
     { path: 'cadastro', component: CadastroComponent },
     { path: 'sobre', component: SobreComponent },
     { path: 'produtos', loadChildren: () => import('./demos/arquitetura-componentes/produto-dashboard.module').then(m => m.ProdutoDashboardModule) },
+    { path: 'admin', loadChildren: () => import('./admin/admin-dashboard/admin-dashboard.module').then(admModule => admModule.AdminDashboardModule) },
     { path: '**', component: NotFoundComponent },
 ];
 
