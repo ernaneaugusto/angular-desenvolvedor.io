@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './navegacao/home/home.component';
 import { SobreComponent } from './institucional/sobre/sobre.component';
 import { CadastroComponent } from './demos/reactiveForms/cadastro/cadastro.component';
+import { AuthGuard } from './services/auth.guard';
 
 const rootRouterConfig: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -11,7 +12,20 @@ const rootRouterConfig: Routes = [
     { path: 'cadastro', component: CadastroComponent },
     { path: 'sobre', component: SobreComponent },
     { path: 'produtos', loadChildren: () => import('./demos/arquitetura-componentes/produto-dashboard.module').then(m => m.ProdutoDashboardModule) },
-    { path: 'admin', loadChildren: () => import('./admin/admin-dashboard/admin-dashboard.module').then(admModule => admModule.AdminDashboardModule) },
+    {
+        path: 'admin',
+        loadChildren: () => import('./admin/admin-dashboard/admin-dashboard.module').then(admModule => admModule.AdminDashboardModule),
+        canLoad: [
+            AuthGuard
+        ],
+        canActivate: [
+            AuthGuard
+        ],
+    },
+    {
+        path: 'forbidden',
+        loadChildren: () => import('./admin/forbidden/forbidden.module').then(forbiddenModule => forbiddenModule.ForbiddenModule)
+    },
     { path: '**', component: NotFoundComponent },
 ];
 

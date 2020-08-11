@@ -14,6 +14,7 @@ import { SobreComponent } from './institucional/sobre/sobre.component';
 import { CadastroComponent } from './demos/reactiveForms/cadastro/cadastro.component';
 import { NavegacaoModule } from './navegacao/navegacao.module';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthGuard } from './services/auth.guard';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   providers: [
     // {provide: APP_BASE_HREF, useValue: '/'} // essa configuracao de url base esta em index.html <base href='/'>
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
