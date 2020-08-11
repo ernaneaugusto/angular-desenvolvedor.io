@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Produto } from '../models/produto';
 
@@ -10,57 +11,15 @@ export class ProdutoDashboardComponent implements OnInit {
 
   public produtos: Produto[];
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   public mudarStatus(event: Produto) {
     event.ativo = !event.ativo;
   }
 
   ngOnInit() {
-    this.produtos = [
-      {
-        id: 1,
-        nome: 'Smartphone Samsung',
-        ativo: true,
-        valor: 100,
-        imagem: 'celular.jpg'
-      },
-      {
-        id: 2,
-        nome: 'Câmera GoPro',
-        ativo: false,
-        valor: 200,
-        imagem: 'gopro.jpg'
-      },
-      {
-        id: 3,
-        nome: 'Notebook',
-        ativo: true,
-        valor: 300,
-        imagem: 'laptop.jpg'
-      },
-      {
-        id: 4,
-        nome: 'Mouse',
-        ativo: true,
-        valor: 400,
-        imagem: 'mouse.jpg'
-      },
-      {
-        id: 5,
-        nome: 'Teclado',
-        ativo: true,
-        valor: 500,
-        imagem: 'teclado.jpg'
-      },
-      {
-        id: 6,
-        nome: 'Headset',
-        ativo: false,
-        valor: 600,
-        imagem: 'headset.jpg'
-      }
-    ];
+    // dados de produtos buscados do Resolve
+    this.produtos = this.route.snapshot.data['produtos'];
   }
 
 }

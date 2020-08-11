@@ -7,6 +7,7 @@ import { ProdutoDashboardComponent } from './produto-dashboard/produto-dashboard
 import { ProdutoCardDetalheComponent } from './componentes/produto-card-detalhe/produto-card-detalhe.component';
 import { ProdutoCountComponent } from './componentes/produto-count/produto-count.component';
 import { ProdutoEditarComponent } from './componentes/produto-editar/produto-editar.component';
+import { ProdutoResolve } from './services/produto.resolve';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import { ProdutoEditarComponent } from './componentes/produto-editar/produto-edi
     ],
     exports: [],
     providers: [
-        ProdutoService
+        ProdutoService,
+        ProdutoResolve
     ],
 })
 
