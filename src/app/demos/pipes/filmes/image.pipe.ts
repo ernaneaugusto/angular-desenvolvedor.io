@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
     name: 'imageformater'
 })
 export class ImageFormaterPipe implements PipeTransform {
-    transform(imagem: string, caminho: string = '', substituir: boolean) {
+    transform(imagem: string, substituir: boolean = true, caminho: string = '') {
 
         if (caminho == 'default')
             caminho = 'assets';
@@ -13,6 +13,6 @@ export class ImageFormaterPipe implements PipeTransform {
             imagem = 'semCapa.jpg'
         }
 
-        return "/" + caminho + "/" + imagem
+        return "/" + caminho + "/" + imagem;
     }
 }
