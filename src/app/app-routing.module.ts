@@ -1,3 +1,4 @@
+import { TodoComponent } from './demos/todo-list/todo.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './navegacao/home/home.component';
@@ -14,6 +15,7 @@ const rootRouterConfig: Routes = [
     { path: 'sobre', component: SobreComponent },
     { path: 'filmes', component: FilmesComponent },
     { path: 'produtos', loadChildren: () => import('./demos/arquitetura-componentes/produto-dashboard.module').then(m => m.ProdutoDashboardModule) },
+    { path: 'todo', component: TodoComponent },
     {
         path: 'admin',
         loadChildren: () => import('./admin/admin-dashboard/admin-dashboard.module').then(admModule => admModule.AdminDashboardModule),

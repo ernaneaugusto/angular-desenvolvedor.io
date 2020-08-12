@@ -18,6 +18,7 @@ import { AuthGuard } from './services/auth.guard';
 import { FilmesComponent } from './demos/pipes/filmes/filmes.component';
 import { FileSizePipe } from './demos/pipes/filmes/filesize.pipe';
 import { ImageFormaterPipe } from './demos/pipes/filmes/image.pipe';
+import { TodoModule } from './demos/todo-list/todo.module';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ImageFormaterPipe } from './demos/pipes/filmes/image.pipe';
     TextMask.TextMaskModule,
     NgBrazil,
     NavegacaoModule,
+    TodoModule,
     AppRoutingModule
   ],
   providers: [
